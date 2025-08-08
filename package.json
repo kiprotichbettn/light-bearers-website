@@ -1,0 +1,32 @@
+{
+  "name": "lightbearers",
+  "version": "1.0.0",
+  "description": "Light Bearers is a community-based organization (CBO) designed to empower high school and university students by providing them with resources for social, economic, and academic growth. The website aims to showcase our mission and the various programs we offer to help students thrive in their education and future careers.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiprotichbettn/light-bearers-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiprotichbettn/light-bearers-website/issues"
+  },
+  "homepage": "https://github.com/kiprotichbettn/light-bearers-website#readme",
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsdom": "^26.1.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

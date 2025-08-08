@@ -1,0 +1,307 @@
+/* Base variables*/
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg: #f4f4f4;
+  --card: #ffffff;
+  --text: #222;
+  --accent: #2f7d32;
+  --accent-strong: #1f5d21;
+  --muted: #666;
+  --shadow: rgba(0,0,0,0.08);
+  --radius: 10px;
+}
+body{
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing:antialiased;
+}
+
+/*  Header / Nav */
+.site-header{
+  background: var(--accent);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 18px 20px 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 20px;
+  max-width:1200px;
+  margin: 0 auto;
+}
+
+.brand .logo{ 
+    font-size:1.35rem;
+     font-weight:700; 
+    }
+
+.primary-nav { margin-left:auto; }
+.nav-list{
+  list-style:none;
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.nav-list a, .dropbtn {
+  color: white;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight:600;
+  background: transparent;
+  border: none;
+  cursor:pointer;
+}
+.nav-list a:hover, .dropbtn:hover, .nav-list a:focus, .dropbtn:focus{
+  background: rgba(255,255,255,0.08);
+  outline: none;
+}
+.register-btn{
+  background: var(--accent-strong);
+  padding: 8px 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: var(--accent);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  border-radius: 8px;
+  list-style: none;
+  padding: 8px 0;
+  min-width: 200px;
+  z-index: 200;
+}
+.dropdown-menu li a {
+  display:block;
+  padding: 8px 14px;
+  color:white;
+}
+.dropdown-menu li a:hover{ background: rgba(255,255,255,0.06); }
+
+.dropdown:hover > .dropdown-menu,
+.dropdown:focus-within > .dropdown-menu { display:block; }
+
+.site-tagline{
+  max-width:1200px;
+  margin: 6px auto 0;
+  padding: 0 20px 20px;
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Layout: three column grid */
+.container{
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 260px 1fr 300px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Sidebar */
+.sidebar{
+  background: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px var(--shadow);
+}
+
+/* left quick-links */
+.quick-links { list-style:none; display:block; }
+.quick-links li { margin-bottom: 10px; }
+.quick-links a { color: var(--accent-strong); text-decoration:none; font-weight:600; }
+.quick-links a:hover { text-decoration: underline; }
+
+/* main content  */
+.main-content{
+  background: transparent;
+  display:block;
+}
+
+/* page sections */
+section{
+  background: var(--card);
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px var(--shadow);
+  margin-bottom: 18px;
+}
+
+/* headings & text */
+h2{ font-size: 1.5rem; margin-bottom: 10px; color: var(--text); }
+p, li, address p { color: #333; margin-bottom: 10px; }
+
+/* program buttons */
+.program-list { list-style:none; display:flex; flex-wrap:wrap; gap:12px; padding:0; }
+.program-btn{
+  background: var(--accent);
+  color: #fff;
+  border:none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor:pointer;
+  transition: transform .12s ease, background .12s ease;
+}
+.program-btn:hover { transform: translateY(-3px); background: var(--accent-strong); }
+.program-details { margin-top: 14px; background: #fbfbfb; padding:12px; border-radius:6px; }
+
+/* leadership messages */
+.leadership-message { display:flex; gap:16px; align-items:flex-start; padding:14px; }
+.leader-photo { width: 96px; border-radius:8px; object-fit:cover; }
+
+/* playlists & videos */
+.playlist-section { margin-bottom: 18px; }
+.video-container { display:flex; flex-wrap:wrap; gap:16px; }
+.video-item { width: 260px; background: var(--card); border-radius:8px; overflow:hidden; text-decoration:none; color: inherit; box-shadow: 0 6px 14px var(--shadow); transition: transform .16s ease, box-shadow .16s ease; }
+.video-item:hover { transform: translateY(-6px); box-shadow: 0 10px 26px rgba(0,0,0,0.14); }
+.video-item img { width:100%; display:block; }
+.video-item .title { padding:10px; font-weight:600; }
+
+/* eBooks list */
+.ebook-list { list-style:none; padding-left:0; }
+.ebook-list li { margin-bottom:8px; }
+
+/* announcements & filters */
+.filter-controls { margin-bottom: 12px; display:flex; gap:8px; flex-wrap:wrap; }
+.filter-btn { padding:8px 12px; border:none; background:#eee; border-radius:6px; cursor:pointer; font-weight:600; }
+.filter-btn:hover, .filter-btn.active { background: var(--accent); color: white; }
+
+/* announcement list */
+.announcement-list { list-style:none; padding-left:0; }
+.announcement-list li { padding:10px; border-radius:6px; background:#f9f9f9; margin-bottom:8px; }
+
+/* urgent banner inside events */
+.urgent-banner {
+  background:#e63946; color:white; padding:12px 14px; border-radius:8px; display:flex; align-items:center; justify-content:space-between; gap:12px; animation: slideDown .45s ease;
+}
+@keyframes slideDown{ from{ transform: translateY(-20px); opacity:0 } to{ transform: none; opacity:1 } }
+#close-urgent { background:transparent; border:none; color:white; font-size:18px; cursor:pointer; }
+
+/* gallery 
+.gallery { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.gallery figure{ width: 230px; text-align:center; }
+.gallery img{ width:100%; border-radius:8px; box-shadow: 0 6px 16px var(--shadow); }*/
+/* Make the archives section span full width across all three columns */
+#archives {
+  grid-column: 1 / -1; /* spans from first to last column in the grid */
+  margin-bottom: 32px;
+}
+
+/* Responsive grid gallery for archives images */
+#archives .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* auto columns, min 200px wide */
+  gap: 16px;
+  justify-items: center; /* center each figure */
+  padding: 0 8px; /* optional side padding */
+}
+
+/* Each figure takes full column width but max 280px */
+#archives .gallery figure {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+
+/* Images styling */
+#archives .gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px var(--shadow);
+  display: block;
+}
+
+
+/* right sidebar: bible verse & contact */
+.bible-reference { font-style: italic; color: var(--muted); }
+
+.left-sidebar,
+.right-sidebar {
+  position: sticky;
+  top: 100px; /* adjust this based on your header height */
+  align-self: start; /* keeps them aligned properly within the grid */
+  max-height: calc(100vh - 80px); /* optional: prevent overflow, adjust to header */
+  overflow-y: auto; /* allows scrolling if content is tall */
+}
+
+
+/* footer */
+.site-footer { text-align:center; padding:18px 10px; color:#fff; background: #55515123; margin-top: 18px; }
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg);
+}
+
+/* Medium screens */
+@media (max-width: 1000px) and (min-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 300px; /* two columns */
+    padding: 0 16px;
+  }
+  .left-sidebar {
+    display: none;
+  }
+}
+
+/* Small screens */
+@media (max-width: 767px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 0 12px;
+  }
+  .sidebar {
+    position: static;
+    top: auto;
+    max-height: none;
+  }
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .site-tagline {
+    text-align: center;
+  }
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: rgba(255,255,255,0.03);
+    margin-top: 8px;
+    border-radius: 6px;
+  }
+  .nav-list {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .program-list {
+    flex-direction: column;
+  }
+  .video-container {
+    flex-direction: column;
+  }
+}
