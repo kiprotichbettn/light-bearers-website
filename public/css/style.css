@@ -238,10 +238,10 @@ p, li, address p { color: #333; margin-bottom: 10px; }
 .left-sidebar,
 .right-sidebar {
   position: sticky;
-  top: 100px; /* adjust this based on your header height */
-  align-self: start; /* keeps them aligned properly within the grid */
-  max-height: calc(100vh - 80px); /* optional: prevent overflow, adjust to header */
-  overflow-y: auto; /* allows scrolling if content is tall */
+  top: 100px; 
+  align-self: start;
+  max-height: calc(100vh - 80px); 
+  overflow-y: auto; 
 }
 
 
