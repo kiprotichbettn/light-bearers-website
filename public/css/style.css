@@ -242,7 +242,7 @@ p, li, address p { color: #333; margin-bottom: 10px; }
   top: 100px; 
   align-self: start; 
   max-height: calc(100vh - 120px);  
-  overflow-y: auto; 
+
 }
 
 
