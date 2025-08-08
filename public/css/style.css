@@ -245,14 +245,18 @@ p, li, address p { color: #333; margin-bottom: 10px; }
 
 }
 
-.highlight-contact {
-  animation: pulse-highlight 1.5s ease;
-}
 
 .highlight-contact {
-  background-color: #fff1b8;
-  box-shadow: 0 0 12px rgba(255, 204, 0, 0.7);
+  animation: pulseHighlight 2s ease-in-out infinite;
+  border-radius: 8px;
 }
+
+@keyframes pulseHighlight {
+  0% { box-shadow: 0 0 0px rgba(255, 223, 0, 0.2); background-color: #fff9c4; }
+  50% { box-shadow: 0 0 12px rgba(255, 223, 0, 0.8); background-color: #fff176; }
+  100% { box-shadow: 0 0 0px rgba(255, 223, 0, 0.2); background-color: #fff9c4; }
+}
+
 
 
 /* footer */
