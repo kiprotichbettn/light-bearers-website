@@ -186,6 +186,10 @@ p, li, address p { color: #333; margin-bottom: 10px; }
 .filter-btn:hover, .filter-btn.active { background: var(--accent); color: white; }
 
 /* announcement list */
+#announcement-list span {
+  font-size: 0.9rem;
+}
+
 .announcement-list { list-style:none; padding-left:0; }
 .announcement-list li { padding:10px; border-radius:6px; background:#f9f9f9; margin-bottom:8px; }
 
@@ -196,11 +200,7 @@ p, li, address p { color: #333; margin-bottom: 10px; }
 @keyframes slideDown{ from{ transform: translateY(-20px); opacity:0 } to{ transform: none; opacity:1 } }
 #close-urgent { background:transparent; border:none; color:white; font-size:18px; cursor:pointer; }
 
-/* gallery 
-.gallery { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
-.gallery figure{ width: 230px; text-align:center; }
-.gallery img{ width:100%; border-radius:8px; box-shadow: 0 6px 16px var(--shadow); }*/
-/* Make the archives section span full width across all three columns */
+
 #archives {
   grid-column: 1 / -1; /* spans from first to last column in the grid */
   margin-bottom: 32px;

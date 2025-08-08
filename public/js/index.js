@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Debook API URL 
   const ebookApiUrl = "/api/ebooks";
 
-  
   const currentHour = new Date().getHours();
   let greetingMessage = "Good Day!";
 
@@ -17,14 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById("greeting").textContent = 
     greetingMessage + " Welcome to Light Bearers website where we empower Youth for Social, Economic, and Academic Growth";
 
-   const programDetails = {
+  const programDetails = {
     academic: "Our Academic Support program helps students with tutoring, study groups, and test prep.",
     career: "Our Career Development program offers workshops on resumes, interviews, and job search strategies.",
     community: "We organize community outreach programs to help students give back and engage with their local area.",
     mentorship: "Our Mentorship program pairs students with industry professionals to guide their career paths."
   };
 
-  // Relevant program details
   document.querySelectorAll('.program-btn').forEach(button => {
     button.addEventListener('click', function() {
       const programType = this.getAttribute('data-program');
@@ -33,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Fetch Bible Verse
   async function getBibleVerse() {
     try {
       const response = await fetch("/api/bible-verse");
@@ -54,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   getBibleVerse();
 
-  // Fetch eBooks
   const ebookList = document.getElementById("ebook-list");
   const loadingMsg = document.getElementById("loading-msg");
 
@@ -85,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (loadingMsg) loadingMsg.textContent = "Failed to load eBooks.";
     });
 
-  // Fetch YouTube videos
   fetch('/api/videos')
     .then(res => res.json())
     .then(playlists => {
@@ -113,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error loading videos:', err);
     });
 
-    // Urgent Announcement 
   const urgentBanner = document.getElementById('urgent-banner');
   const urgentText = document.getElementById('urgent-text');
   const closeUrgent = document.getElementById('close-urgent');
@@ -129,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
     urgentBanner.style.display = "none";
   });
 
-  // Upcoming Events and Announcements
   const events = [
     {
       title: "Student Leadership Summit",
@@ -154,6 +146,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const itemsList = document.getElementById("announcement-list");
   const filterButtons = document.querySelectorAll(".filter-btn");
 
+  function calculateDaysLeft(dateString) {
+    const today = new Date();
+    const eventDate = new Date(dateString);
+    today.setHours(0, 0, 0, 0);
+    eventDate.setHours(0, 0, 0, 0);
+    const diffTime = eventDate - today;
+    return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  }
+
   function renderItems(type) {
     itemsList.innerHTML = "";
 
@@ -164,26 +165,36 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-filtered.forEach(item => {
-  const li = document.createElement("li");
+    filtered.forEach(item => {
+      const li = document.createElement("li");
 
-  let content = `
-    <strong>${item.title}</strong> <br />
-    <small>${item.date}</small><br/>
-    <p>${item.description}</p>
-  `;
+      const daysRemaining = calculateDaysLeft(item.date);
+      const countdownText = item.type === "event"
+        ? (daysRemaining >= 0 
+            ? `<span style="color: #d35400; font-weight: bold;">${daysRemaining} day${daysRemaining !== 1 ? 's' : ''} remaining</span>` 
+            : `<span style="color: #999;">Event has passed</span>`)
+        : "";
 
-  if (item.type === "event") {
-    const startDate = item.date.replace(/-/g, ""); // format YYYYMMDD
-    const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(item.title)}&dates=${startDate}/${startDate}&details=${encodeURIComponent(item.description)}`;
+      let content = `
+        <strong>${item.title}</strong><br/>
+        <small>${item.date}</small> ${countdownText}<br/>
+        <p>${item.description}</p>
+      `;
 
-    content += `<br/><a href="${calendarUrl}" target="_blank" rel="noopener noreferrer">📅 Add to Google Calendar</a>`;
-  }
+      if (item.type === "event") {
+        const today = new Date();
+        const eventDate = new Date(item.date);
 
-  li.innerHTML = content;
-  itemsList.appendChild(li);
-});
+        if (eventDate >= today) {
+          const startDate = item.date.replace(/-/g, ""); 
+          const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(item.title)}&dates=${startDate}/${startDate}&details=${encodeURIComponent(item.description)}`;
+          content += `<br/><a href="${calendarUrl}" target="_blank" rel="noopener noreferrer">📅 Add to Google Calendar</a>`;
+        }
+      }
 
+      li.innerHTML = content;
+      itemsList.appendChild(li);
+    });
   }
 
   filterButtons.forEach(btn => {
@@ -197,6 +208,4 @@ filtered.forEach(item => {
 
   renderItems("event");
   document.querySelector('.filter-btn[data-filter="event"]')?.classList.add("active");
-
-  
 });
