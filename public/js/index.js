@@ -206,6 +206,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+const contactLink = document.getElementById("nav-contact");
+const contactSection = document.getElementById("contact-section");
+
+if (contactLink && contactSection) {
+  contactLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    contactSection.classList.add("highlight-contact");
+
+    setTimeout(() => {
+      contactSection.classList.remove("highlight-contact");
+    }, 100000);
+  });
+}
+
+
   renderItems("event");
   document.querySelector('.filter-btn[data-filter="event"]')?.classList.add("active");
 });

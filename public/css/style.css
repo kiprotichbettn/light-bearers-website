@@ -245,6 +245,15 @@ p, li, address p { color: #333; margin-bottom: 10px; }
 
 }
 
+.highlight-contact {
+  animation: pulse-highlight 1.5s ease;
+}
+
+.highlight-contact {
+  background-color: #fff1b8;
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.7);
+}
+
 
 /* footer */
 .site-footer { text-align:center; padding:18px 10px; color:#fff; background: #55515123; margin-top: 18px; }
