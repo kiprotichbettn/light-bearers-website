@@ -212,7 +212,7 @@ p, li, address p { color: #333; margin-bottom: 10px; }
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* auto columns, min 200px wide */
   gap: 16px;
   justify-items: center; /* center each figure */
-  padding: 0 8px; /* optional side padding */
+  padding: 0 8px; 
 }
 
 /* Each figure takes full column width but max 280px */

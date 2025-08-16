@@ -50,6 +50,14 @@ I wanted to create something meaningful that helps students while sharpening my 
 - CSS
 - Git
 
+## APIs Used
+**This project uses the following APIs:**:
+- Ebooks API (Gutendex) – https://publicapi.dev/gutendex-api
+ Used to fetch and display available ebooks.
+
+- YouTube Data API v3 – https://developers.google.com/youtube/v3
+ Used to retrieve and display videos from YouTube playlists.
+
 ## License
 
 This project is licensed under the right procedure.
